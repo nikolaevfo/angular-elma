@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderModule } from './components/header/header.module';
-import { SidenavModule } from './components/header/sidenav/sidenav.module';
+import { SidenavModule } from './components/sidenav/sidenav.module';
 
 
 @NgModule({

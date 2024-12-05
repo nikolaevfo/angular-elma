@@ -12,11 +12,6 @@ export class SidenavComponent {
 
     @ViewChild('drawer') private readonly matdrawer?: MatDrawer;
 
-    // protected toggleSidenavOpened () {
-    //     this.isDrawerOpen = !this.isDrawerOpen;
-    //     this.isDrawerOpenChange.emit(this.isDrawerOpen);
-    // }
-
     toggleSidenavOpen () {
         this.matdrawer?.toggle();
     }

@@ -14,24 +14,8 @@ export class HeaderComponent {
     @Output() menuClick  = new EventEmitter<MouseEvent>;
 
     protected onMenuClick (event: MouseEvent) {
-        // console.log(event);
         event.stopPropagation();
 
         this.menuClick.emit(event)
     }
-
-    protected onContextMenuClick (event: MouseEvent) {
-        console.log('onContextMenuClick');
-        // event.preventDefault();
-        // return false;
-    }
-
-    protected onKeyDownHandler (event: Event) {
-        console.log('onKeyDownHandler');
-    }
-
-    protected onHeaderClick () {
-        console.log('header click');
-    }
-
 }

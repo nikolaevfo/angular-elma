@@ -1,10 +1,8 @@
-<mat-toolbar (click)="onHeaderClick()">
+<mat-toolbar>
     <button
         mat-icon-button
         class="example-icon"
         (click)="onMenuClick($event)"
-        (contextmenu)="onContextMenuClick($event); false"
-        (keydown.enter)="onKeyDownHandler($event)"
     >
         <mat-icon>menu</mat-icon>
     </button>

@@ -7,9 +7,12 @@
     (menuClick)="onMenuClick($event)"
 ></app-header> -->
 
+<!-- <p>Red text</p> -->
+
 
 <app-sidenav
     #sidenav
+    [title]="applicationConfig.title"
     [(isDrawerOpen)]="isSidenavOpen"
 ></app-sidenav>
 

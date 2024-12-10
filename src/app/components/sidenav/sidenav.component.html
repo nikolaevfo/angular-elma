@@ -3,12 +3,18 @@
         <!-- [opened]="isDrawerOpen" -->
 
         <p>Auto-resizing sidenav</p>
+
+        <!-- <div #viewPort class="view-port"></div> -->
+        <!-- <ng-container #viewPort></ng-container> -->
+
+        <ng-content select="matList"></ng-content>
     </mat-drawer>
 
     <div class="example-sidenav-content">
         <button type="button" mat-button (click)="drawer.toggle()">
             Toggle sidenav
         </button>
+        <ng-content select="title"></ng-content>
     </div>
 
 </mat-drawer-container>

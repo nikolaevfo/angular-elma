@@ -8,6 +8,7 @@ import { HeaderModule } from './components/header/header.module';
 import { SidenavModule } from './components/sidenav/sidenav.module';
 import {MatListModule} from '@angular/material/list';
 import { ProductsListModule } from './pages/products-list/products-list.module';
+import { ShadowClickModule } from './shared/shadow-click/shadow-click.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ProductsListModule } from './pages/products-list/products-list.module';
         SidenavModule,
         MatListModule,
         ProductsListModule,
+        ShadowClickModule,
     ],
     providers: [
         provideAnimationsAsync()

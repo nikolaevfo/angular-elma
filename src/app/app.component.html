@@ -8,30 +8,7 @@
     [title]="applicationConfig.title"
     [(isDrawerOpen)]="isSidenavOpen"
 >
-    <!-- <ng-template #matList>
-        <p class="title">{{applicationConfig.title}}</p>
-        <mat-list>
-            <mat-list-item>Pepper</mat-list-item>
-            <mat-list-item>Salt</mat-list-item>
-            <mat-list-item>Paprika</mat-list-item>
-        </mat-list>
-    </ng-template> -->
-
     <p class="title" ngProjectAs="title">{{applicationConfig.title}}</p>
-    <!-- <div ngProjectAs="matList">
-        <mat-list >
-            <mat-list-item>Pepper</mat-list-item>
-            <mat-list-item>Salt</mat-list-item>
-            <mat-list-item>Paprika</mat-list-item>
-        </mat-list>
-    </div> -->
-    <!-- <ng-container ngProjectAs="matList">
-        <mat-list #matListClass>
-            <mat-list-item>Pepper</mat-list-item>
-            <mat-list-item>Salt</mat-list-item>
-            <mat-list-item>Paprika</mat-list-item>
-        </mat-list>
-    </ng-container> -->
     <div ngProjectAs="matList">
         <mat-list #matListClass>
             <mat-list-item>Pepper</mat-list-item>

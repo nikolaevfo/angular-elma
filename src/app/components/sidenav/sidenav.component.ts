@@ -7,40 +7,18 @@ import { MatDrawer } from '@angular/material/sidenav';
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss',
 })
-export class SidenavComponent implements OnInit, AfterViewInit, OnChanges {
+export class SidenavComponent {
 
     @Input() isDrawerOpen = false;
     @Input() title?: string;
-    // @Input() template?: TemplateRef<unknown>;
     @Output() isDrawerOpenChange = new EventEmitter<boolean>();
 
     @ViewChild('drawer', {static: true}) private readonly matdrawer?: MatDrawer;
-    // @ViewChild('viewPort', {static: true, read: ViewContainerRef}) private readonly viewPort?: ViewContainerRef;
 
-    // @ContentChild('matListClass', {static: true}) private readonly matList?: MatList; //не находит
     @ContentChild('matListClass', {static: true, descendants: false})
     private readonly matList?: MatList; // потомки найдутся
 
     toggleSidenavOpen () {
         this.matdrawer?.toggle();
-    }
-
-    ngOnInit(): void {
-        // console.log('ngOnInit', this.matdrawer)
-        // console.log('ngOnInit', this.viewPort)
-        console.log('ngOnInit', this.matList)
-        // if (this.matList){
-        //     this.viewPort?.createEmbeddedView(this.matList);
-        // }
-    }
-    ngAfterViewInit(): void {
-        // console.log('ngAfterViewInit', this.matdrawer)
-    }
-
-    ngOnChanges({template}: SimpleChanges): void {
-        // if(template && this.template) {
-        //     this.viewPort?.clear();
-        //     this.viewPort?.createEmbeddedView(this.template);
-        // }
     }
 }

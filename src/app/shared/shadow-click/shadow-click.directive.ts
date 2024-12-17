@@ -21,7 +21,7 @@ export class ShadowClickDirective {
     // }
 
     @HostBinding('style.boxShadow') get boxShadow() {
-        return !this.boxShadowActive ? 'inset 0 0 10px teal' : '';
+        return this.boxShadowActive ? 'inset 0 0 10px teal' : '';
     };
     // @HostBinding('style.boxShadow') boxShadow = '';
 }

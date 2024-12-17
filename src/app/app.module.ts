@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HeaderModule } from './components/header/header.module';
 import { SidenavModule } from './components/sidenav/sidenav.module';
 import {MatListModule} from '@angular/material/list';
+import { ProductsListModule } from './pages/products-list/products-list.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {MatListModule} from '@angular/material/list';
         HeaderModule,
         SidenavModule,
         MatListModule,
+        ProductsListModule,
     ],
     providers: [
         provideAnimationsAsync()

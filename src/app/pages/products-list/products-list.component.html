@@ -1,4 +1,4 @@
-<ng-template [ngIf]="products" let-value="ngIf">
+<ng-template [ngIf]="products" [ngIfElse]="spinner" let-value>
     <app-card class="card" [product]="value?.[0] || null"></app-card>
     <app-card class="card" [product]="value?.[1] || null"></app-card>
     <app-card class="card" [product]="value?.[2] || null"></app-card>
@@ -19,3 +19,7 @@
     <app-card class="card" [product]="products?.[3] || null"></app-card>
     <app-card class="card" [product]="products?.[4] || null"></app-card>
 </ng-template> -->
+
+<ng-template #spinner>
+    <mat-spinner></mat-spinner>
+</ng-template>

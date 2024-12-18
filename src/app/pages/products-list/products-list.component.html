@@ -1,10 +1,17 @@
-<ng-template [appIf]="products" let-value="appIf">
+<ng-template [ngIf]="products" let-value="ngIf">
     <app-card class="card" [product]="value?.[0] || null"></app-card>
     <app-card class="card" [product]="value?.[1] || null"></app-card>
     <app-card class="card" [product]="value?.[2] || null"></app-card>
     <app-card class="card" [product]="value?.[3] || null"></app-card>
     <app-card class="card" [product]="value?.[4] || null"></app-card>
 </ng-template>
+<!-- <ng-template [appIf]="products" let-value="appIf">
+    <app-card class="card" [product]="value?.[0] || null"></app-card>
+    <app-card class="card" [product]="value?.[1] || null"></app-card>
+    <app-card class="card" [product]="value?.[2] || null"></app-card>
+    <app-card class="card" [product]="value?.[3] || null"></app-card>
+    <app-card class="card" [product]="value?.[4] || null"></app-card>
+</ng-template> -->
 <!-- <ng-template [appIf]="products">
     <app-card class="card" [product]="products?.[0] || null"></app-card>
     <app-card class="card" [product]="products?.[1] || null"></app-card>

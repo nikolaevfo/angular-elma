@@ -8,7 +8,11 @@ export class IfDirective<T> {
         const isContainerHasView = this.viewContainerRef.length;
 
         if (value && !isContainerHasView) {
-            this.viewContainerRef.createEmbeddedView(this.templateRef);
+            this.viewContainerRef.createEmbeddedView(this.templateRef, {
+                appIf: value,
+                // data: value,
+                $implicit: value,
+            });
 
             return;
         }

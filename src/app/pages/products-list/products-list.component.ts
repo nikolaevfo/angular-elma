@@ -11,6 +11,7 @@ export class ProductsListComponent implements OnInit {
     private productsStore: IProduct[] | null = null;
 
     get products(): IProduct[] | null {
+        console.log('products')
         return this.productsStore;
     }
 

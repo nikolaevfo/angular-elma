@@ -1,5 +1,7 @@
-<app-card class="card" [product]="products?.[0] || null"></app-card>
-<app-card class="card" [product]="products?.[1] || null"></app-card>
-<app-card class="card" [product]="products?.[2] || null"></app-card>
-<app-card class="card" [product]="products?.[3] || null"></app-card>
-<app-card class="card" [product]="products?.[4] || null"></app-card>
+<ng-template [appIf]="products">
+    <app-card class="card" [product]="products?.[0] || null"></app-card>
+    <app-card class="card" [product]="products?.[1] || null"></app-card>
+    <app-card class="card" [product]="products?.[2] || null"></app-card>
+    <app-card class="card" [product]="products?.[3] || null"></app-card>
+    <app-card class="card" [product]="products?.[4] || null"></app-card>
+</ng-template>

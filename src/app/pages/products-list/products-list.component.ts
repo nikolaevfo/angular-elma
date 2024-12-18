@@ -15,9 +15,9 @@ export class ProductsListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.productsStore = productsMock;
-        // setTimeout(() => {
-        //     this.productsStore = productsMock;
-        // }, 4000);
+        // this.productsStore = productsMock;
+        setTimeout(() => {
+            this.productsStore = productsMock;
+        }, 3000);
     }
 }

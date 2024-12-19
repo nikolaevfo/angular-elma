@@ -1,4 +1,14 @@
 <div
+    *ngIf="products as productsValue; else spinner; let value"
+    class="cards"
+>
+    <app-card
+        *ngFor="let product of productsValue; trackBy: trackBy"
+        class="card"
+        [product]="product"
+        ></app-card>
+</div>
+<!-- <div
     *ngIf="products as productValue; else spinner; let value" value
 >
     <app-card class="card" [product]="productValue[0] || null"></app-card>
@@ -6,7 +16,7 @@
     <app-card class="card" [product]="value?.[2] || null"></app-card>
     <app-card class="card" [product]="value?.[3] || null"></app-card>
     <app-card class="card" [product]="value?.[4] || null"></app-card>
-</div>
+</div> -->
 <!-- <ng-template [ngIf]="products" [ngIfElse]="spinner" let-value>
     <app-card class="card" [product]="value?.[0] || null"></app-card>
     <app-card class="card" [product]="value?.[1] || null"></app-card>

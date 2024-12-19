@@ -20,5 +20,16 @@ export class ProductsListComponent implements OnInit {
         setTimeout(() => {
             this.productsStore = productsMock;
         }, 3000);
+
+        setTimeout(() => {
+            this.productsStore = productsMock.map((product) => {
+                return {...product, feedbacksCount: 2}
+            });
+        }, 6000);
+    }
+
+    protected trackBy (_index: number, product: IProduct) {
+        return product._id;
+        // return product.feedbacksCount;
     }
 }

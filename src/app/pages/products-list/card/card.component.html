@@ -4,7 +4,21 @@
         <mat-card-subtitle>{{ product?.price }} $</mat-card-subtitle>
     </mat-card-header>
     <div class="galerey">
-        <ng-template
+        <ng-container
+            *appCarousel="
+                let imageOtions of product?.images;
+                let next = next;
+                let back = back;"
+        >
+            <button mat-icon-button (click)="back()">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <img mat-card-image alt="Product photo" [src]="imageOtions.url" />
+            <button mat-icon-button (click)="next()">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </ng-container>
+        <!-- <ng-template
             appCarousel
             [appCarouselOf]="product?.images"
             let-imageOtions
@@ -18,7 +32,7 @@
             <button mat-icon-button (click)="next()">
                 <mat-icon>chevron_right</mat-icon>
             </button>
-        </ng-template>
+        </ng-template> -->
     </div>
     <mat-card-content>
         <p>Отзывы: {{ product?.feedbacksCount }}</p>

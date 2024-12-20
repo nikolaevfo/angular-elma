@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
@@ -8,6 +8,7 @@ import { MatDrawer } from '@angular/material/sidenav';
     // encapsulation: ViewEncapsulation.Emulated,
     // encapsulation: ViewEncapsulation.None,
     // encapsulation: ViewEncapsulation.ShadowDom,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     @Input() isDrawerOpen = false;
@@ -16,8 +17,13 @@ export class SidenavComponent implements OnChanges, OnInit, DoCheck, AfterConten
 
     @ViewChild('drawer') private readonly matdrawer?: MatDrawer;
 
+    constructor(
+        private readonly cdr: ChangeDetectorRef,
+    ){}
+
     toggleSidenavOpen () {
         this.matdrawer?.toggle();
+        this.cdr.markForCheck();
     }
 
     ngOnChanges({title}: SimpleChanges): void {

@@ -8,7 +8,6 @@
     [title]="applicationConfig.title"
     [(isDrawerOpen)]="isSidenavOpen"
 >
-    <!-- <p class="title" ngProjectAs="title">{{applicationConfig.title}}</p> -->
     <div ngProjectAs="matList">
         <mat-list #matListClass>
             <mat-list-item appShadowClick>Pepper</mat-list-item>
@@ -19,12 +18,3 @@
 
     <app-products-list></app-products-list>
 </app-sidenav>
-
-<!-- <ng-template #matList>
-    <p class="title">{{applicationConfig.title}}</p>
-    <mat-list>
-        <mat-list-item>Pepper</mat-list-item>
-        <mat-list-item>Salt</mat-list-item>
-        <mat-list-item>Paprika</mat-list-item>
-    </mat-list>
-</ng-template> -->

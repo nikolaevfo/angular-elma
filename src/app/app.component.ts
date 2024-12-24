@@ -10,7 +10,6 @@ export class AppComponent {
     protected isSidenavOpen = false;
 
     applicationConfig = applicationConfigMock
-
     protected onMenuClick (event: MouseEvent) {
         this.isSidenavOpen = !this.isSidenavOpen;
     }

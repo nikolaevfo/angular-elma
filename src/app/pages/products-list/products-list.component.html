@@ -8,51 +8,7 @@
         [product]="product"
         ></app-card>
 </div>
-<!-- <div
-    *ngIf="products as productValue; else spinner; let value" value
->
-    <app-card class="card" [product]="productValue[0] || null"></app-card>
-    <app-card class="card" [product]="value?.[1] || null"></app-card>
-    <app-card class="card" [product]="value?.[2] || null"></app-card>
-    <app-card class="card" [product]="value?.[3] || null"></app-card>
-    <app-card class="card" [product]="value?.[4] || null"></app-card>
-</div> -->
-<!-- <ng-template [ngIf]="products" [ngIfElse]="spinner" let-value>
-    <app-card class="card" [product]="value?.[0] || null"></app-card>
-    <app-card class="card" [product]="value?.[1] || null"></app-card>
-    <app-card class="card" [product]="value?.[2] || null"></app-card>
-    <app-card class="card" [product]="value?.[3] || null"></app-card>
-    <app-card class="card" [product]="value?.[4] || null"></app-card>
-</ng-template> -->
-<!-- <ng-template [appIf]="products" let-value>
-    <app-card class="card" [product]="products[0] || null"></app-card>
-    <app-card class="card" [product]="value?.[1] || null"></app-card>
-    <app-card class="card" [product]="value?.[2] || null"></app-card>
-    <app-card class="card" [product]="value?.[3] || null"></app-card>
-    <app-card class="card" [product]="value?.[4] || null"></app-card>
-</ng-template> -->
-<!-- <ng-template [appIf]="products">
-    <app-card class="card" [product]="products?.[0] || null"></app-card>
-    <app-card class="card" [product]="products?.[1] || null"></app-card>
-    <app-card class="card" [product]="products?.[2] || null"></app-card>
-    <app-card class="card" [product]="products?.[3] || null"></app-card>
-    <app-card class="card" [product]="products?.[4] || null"></app-card>
-</ng-template> -->
 
 <ng-template #spinner>
     <mat-spinner></mat-spinner>
 </ng-template>
-
-<!-- ngTemplateOutlet -->
-<!-- <ng-template
-    [ngTemplateOutlet]="!products ? spinner : productsTemplate"
-    [ngTemplateOutletContext]="{$implicit: products}"
-></ng-template>
-
-<ng-template #productsTemplate let-value>
-    <app-card class="card" [product]="value?.[0] || null"></app-card>
-    <app-card class="card" [product]="value?.[1] || null"></app-card>
-    <app-card class="card" [product]="value?.[2] || null"></app-card>
-    <app-card class="card" [product]="value?.[3] || null"></app-card>
-    <app-card class="card" [product]="value?.[4] || null"></app-card>
-</ng-template> -->

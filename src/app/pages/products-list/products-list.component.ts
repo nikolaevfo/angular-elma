@@ -11,21 +11,13 @@ export class ProductsListComponent implements OnInit {
     private productsStore: IProduct[] | null = null;
 
     get products(): IProduct[] | null {
-        console.log('products')
         return this.productsStore;
     }
 
     ngOnInit(): void {
-        // this.productsStore = productsMock;
         setTimeout(() => {
             this.productsStore = productsMock;
         }, 3000);
-
-        setTimeout(() => {
-            this.productsStore = productsMock.map((product) => {
-                return {...product, feedbacksCount: 2}
-            });
-        }, 6000);
     }
 
     protected trackBy (_index: number, product: IProduct) {

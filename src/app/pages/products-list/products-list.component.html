@@ -1,7 +1,11 @@
 <div
-    *ngIf="products as productsValue; else spinner; let value"
+    *ngIf="(products | async) as productsValue; else spinner; let value"
     class="cards"
 >
+<!-- <div
+    *ngIf="products as productsValue; else spinner; let value"
+    class="cards"
+> -->
     <app-card
         *ngFor="let product of productsValue; trackBy: trackBy"
         class="card"

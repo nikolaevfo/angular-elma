@@ -4,11 +4,11 @@ import {IProduct} from './product.interface';
 import {ProductsApiService} from './products-api.service';
 import { productsMock } from './products.mock';
 
-@Injectable()
+// @Injectable()
 export class ProductsStoreService {
     private readonly productsStore$ = new BehaviorSubject<IProduct[] | null>(null);
 
-    constructor(private readonly productsApiService: ProductsApiService) {}
+    // constructor(private readonly productsApiService: ProductsApiService) {}
 
     get products$(): Observable<IProduct[] | null> {
         return this.productsStore$.asObservable();

@@ -5,6 +5,7 @@ import { applicationConfigMock } from './shared/app-config/app-config.mock';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
+    // providers: [],
 })
 export class AppComponent {
     protected isSidenavOpen = false;

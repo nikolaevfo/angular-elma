@@ -17,7 +17,7 @@ export class ProductsListComponent implements OnInit {
     ngOnInit(): void {
         setTimeout(() => {
             this.productsStore = productsMock;
-        }, 1000);
+        }, 3000);
     }
 
     protected trackBy (_index: number, product: IProduct) {

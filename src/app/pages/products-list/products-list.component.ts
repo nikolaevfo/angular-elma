@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, inject, Inject, OnInit} from '@angular/core';
 import {productsMock} from '../../shared/products/products.mock';
 import {IProduct} from '../../shared/products/product.interface';
 import { ProductsStoreService } from '../../shared/products/products-store.service';
@@ -22,10 +22,20 @@ export class ProductsListComponent implements OnInit {
 
     private productsStore = new ProductsStoreService();
 
+    private readonly elementRef = inject(ElementRef)
+
+    constructor(
+        @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
+        // @Inject(ElementRef) private readonly elementRef: ElementRef,
+        // private readonly cdr: ChangeDetectorRef,
+    ){}
+
     ngOnInit(): void {
         // setTimeout(() => {
         //     this.productsStore = productsMock;
         // }, 1000);
+        console.log(this.changeDetectorRef)
+        console.log(this.elementRef)
 
         this.productsStore.loadProducts();
     }

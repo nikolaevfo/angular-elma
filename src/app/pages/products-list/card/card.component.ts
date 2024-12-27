@@ -33,9 +33,4 @@ export class CardComponent implements OnInit {
     isStarActive(starIndex: number): boolean {
         return !!(this.product && this.product.rating >= starIndex);
     }
-
-    // protected get currencyGetter () {
-    //     console.log('getter')
-    //     return `${this.product?.price} $`
-    // }
 }

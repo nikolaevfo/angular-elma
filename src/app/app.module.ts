@@ -11,6 +11,8 @@ import { ProductsListModule } from './pages/products-list/products-list.module';
 import { ShadowClickModule } from './shared/shadow-click/shadow-click.module';
 import { ProductsStoreService } from './shared/products/products-store.service';
 import { ProductsApiService } from './shared/products/products-api.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ProductsApiService } from './shared/products/products-api.service';
         MatListModule,
         ProductsListModule,
         ShadowClickModule,
+        HttpClientModule,
     ],
     providers: [
         provideAnimationsAsync(),
@@ -33,39 +36,11 @@ import { ProductsApiService } from './shared/products/products-api.service';
             provide: ProductsStoreService,
             useClass: ProductsStoreService,
         },
-        // {
-        //     provide: ProductsStoreService,
-        //     useFactory: () => new ProductsStoreService(),
-        // },
-        // {
-        //     provide: 'name',
-        //     useValue: 'Fedor',
-        // },
         {
-            provide: 'name',
-            useFactory: () => 'Fedor',
+            provide: HTTP_INTERCEPTORS,
+            useClass: BaseUrlInterceptor,
             multi: true,
         },
-        {
-            provide: 'name',
-            useFactory: () => 'Tolya',
-            multi: true,
-        },
-        // {
-        //     provide: 'ProductsStoreService',
-        //     useExisting: ProductsStoreService,
-        // },
-        // {
-        //     provide: 'ProductsStoreService',
-        //     useFactory: (productsStoreService: ProductsStoreService) => productsStoreService,
-        //     deps: [ProductsStoreService],
-        // },
-        {
-            provide: 'ProductsStoreService',
-            useFactory: () => inject(ProductsStoreService),
-        },
-
-
     ],
     bootstrap: [AppComponent]
 })

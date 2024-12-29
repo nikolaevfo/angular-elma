@@ -1,14 +1,25 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { applicationConfigMock } from './shared/app-config/app-config.mock';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    // providers: [],
+    providers: [
+        {
+            provide: 'provideData',
+            useValue: 'app component provide data',
+        }
+    ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     protected isSidenavOpen = false;
+
+    // @ViewChild('sidenav', {read: 'nameFedor', static: true}) private readonly sidenavProvideData?: string;
+
+    ngOnInit(): void {
+        // console.log(this.sidenavProvideData)
+    }
 
     applicationConfig = applicationConfigMock
     protected onMenuClick (event: MouseEvent) {

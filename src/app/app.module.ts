@@ -1,4 +1,4 @@
-import { inject, NgModule } from '@angular/core';
+import { inject, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,10 +34,10 @@ import { BASE_URL } from './shared/base-url/base-url.token';
     providers: [
         provideAnimationsAsync(),
         ProductsApiService,
-        {
-            provide: ProductsStoreService,
-            useClass: ProductsStoreService,
-        },
+        // {
+        //     provide: ProductsStoreService,
+        //     useClass: ProductsStoreService,
+        // },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: BaseUrlInterceptor,
@@ -54,4 +54,52 @@ import { BASE_URL } from './shared/base-url/base-url.token';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    // constructor() {
+    //     const parentInjector = Injector.create({
+    //         providers: [
+    //             {
+    //                 provide: 'name',
+    //                 useValue: 'Fedor',
+    //             },
+    //         ],
+    //     });
+    //     const injector = Injector.create({
+    //         providers: [
+    //             {
+    //                 provide: BASE_URL,
+    //                 useValue: 'http://base',
+    //             },
+    //         ],
+    //         parent: parentInjector,
+    //     });
+
+    //     console.log(injector.get(BASE_URL), 'BASE_URL');
+    //     console.log(injector.get('name'), 'name');
+    // }
+}
+
+/**
+ *                              NullInjector
+ *
+ *                                   |
+ *
+ *                              PlatformInjector
+ *
+ *                                   |
+ *
+ *                       RootInjector(AppModuleInjector)
+ *
+ * ------------------------------------------------------------------------
+ *
+ *                            AppElementInjector
+ *
+ *                                   |
+ *
+ *                           SidenavElementInjector
+ *
+ *                                   |
+ *
+ *                        ProductsListElementInjector
+ *
+ */

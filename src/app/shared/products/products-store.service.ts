@@ -21,8 +21,7 @@ export class ProductsStoreService {
             this.activeLoadProductsSubscription.unsubscribe();
         }
 
-        this.activeLoadProductsSubscription = this.productsApiService
-            .getProducts$()
+        this.activeLoadProductsSubscription = this.productsApiService.getProducts$()
             .subscribe(products => {
                 this.productsStore$.next(products);
 

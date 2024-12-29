@@ -13,6 +13,8 @@ import { ProductsStoreService } from './shared/products/products-store.service';
 import { ProductsApiService } from './shared/products/products-api.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
+import { baseUrl } from './shared/base-url/base-url.const';
+import { BASE_URL } from './shared/base-url/base-url.token';
 
 
 @NgModule({
@@ -41,6 +43,14 @@ import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
             useClass: BaseUrlInterceptor,
             multi: true,
         },
+        // {
+        //     provide: 'BaseUrl',
+        //     useValue: baseUrl,
+        // }
+        {
+            provide: BASE_URL,
+            useValue: baseUrl,
+        }
     ],
     bootstrap: [AppComponent]
 })

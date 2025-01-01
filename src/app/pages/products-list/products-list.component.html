@@ -6,7 +6,14 @@
         *ngFor="let product of productsValue; trackBy: trackBy"
         class="card"
         [product]="product"
-        ></app-card>
+        routerLink="/product/id"
+    ></app-card>
+    <!-- <app-card
+        *ngFor="let product of productsValue; trackBy: trackBy"
+        class="card"
+        [product]="product"
+        (click)="nagigateToProduct()"
+    ></app-card> -->
 </div>
 
 <ng-template #spinner>

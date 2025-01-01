@@ -15,8 +15,6 @@ import { applicationConfigMock } from './shared/app-config/app-config.mock';
 export class AppComponent implements OnInit {
     protected isSidenavOpen = false;
 
-    // @ViewChild('sidenav', {read: 'nameFedor', static: true}) private readonly sidenavProvideData?: string;
-
     ngOnInit(): void {
         // console.log(this.sidenavProvideData)
     }

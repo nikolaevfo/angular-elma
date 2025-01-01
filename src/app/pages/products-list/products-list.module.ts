@@ -5,6 +5,7 @@ import { ProductsListComponent } from './products-list.component';
 import { CardModule } from './card/card.module';
 import { IfModule } from '../../shared/if/if.module';
 
+
 @NgModule({
     declarations: [ProductsListComponent],
     imports: [

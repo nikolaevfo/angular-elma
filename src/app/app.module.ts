@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderModule } from './components/header/header.module';
 import { SidenavModule } from './components/sidenav/sidenav.module';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { ProductsListModule } from './pages/products-list/products-list.module';
 import { ShadowClickModule } from './shared/shadow-click/shadow-click.module';
 import { ProductsApiService } from './shared/products/products-api.service';
@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
 import { baseUrl } from './shared/base-url/base-url.const';
 import { BASE_URL } from './shared/base-url/base-url.token';
+import { ProductModule } from './pages/product/product.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BASE_URL } from './shared/base-url/base-url.token';
         ProductsListModule,
         ShadowClickModule,
         HttpClientModule,
+        ProductModule,
     ],
     providers: [
         provideAnimationsAsync(),

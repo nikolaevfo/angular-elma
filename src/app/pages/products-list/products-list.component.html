@@ -6,8 +6,14 @@
         *ngFor="let product of productsValue; trackBy: trackBy"
         class="card"
         [product]="product"
-        routerLink="/product/id"
+        [routerLink]="['/product', product._id]"
     ></app-card>
+    <!-- <app-card
+        *ngFor="let product of productsValue; trackBy: trackBy"
+        class="card"
+        [product]="product"
+        routerLink="/product/id"
+    ></app-card> -->
     <!-- <app-card
         *ngFor="let product of productsValue; trackBy: trackBy"
         class="card"

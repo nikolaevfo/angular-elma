@@ -10,7 +10,7 @@ import {ProductsStoreService} from '../../shared/products/products-store.service
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductComponent {
-    readonly product$ = of('portativnaa-kolonka-huawei-cm510-cernyj').pipe(
+    readonly product$ = of('96-planset-dexp-ursus-s290-32-gb-3g-cernyj').pipe(
         tap(productId => {
             // console.log('tap', productId);
             this.productsStoreService.loadProduct(productId);

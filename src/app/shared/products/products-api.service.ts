@@ -14,6 +14,6 @@ export class ProductsApiService {
     }
 
     getProduct$(id: string): Observable<IProduct | undefined> {
-        return this.httpClient.get<IProduct>(`/products/${id}`);
+        return this.httpClient.post<IProduct>(`/product`, JSON.stringify({id}));
     }
 }

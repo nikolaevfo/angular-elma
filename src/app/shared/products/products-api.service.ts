@@ -10,14 +10,10 @@ export class ProductsApiService {
     constructor(private readonly httpClient: HttpClient) {}
 
     getProducts$(): Observable<IProduct[]> {
-        // return of({data: {items: productsMock}}).pipe(map(({data}) => data.items));
-        return this.httpClient.get<any>(`/products`, {
-            // headers: new HttpHeaders({'hello': 'Fedor'}),
-            // params: {text: '123'},
-        })
-        // return this.httpClient.get<any>(`${baseUrl}/products`, {
-        //     // headers: new HttpHeaders({'hello': 'Fedor'}),
-        //     // params: {text: '123'},
-        // })
+        return this.httpClient.get<IProduct[]>(`/products`)
+    }
+
+    getProduct$(id: string): Observable<IProduct | undefined> {
+        return this.httpClient.get<IProduct>(`/products/${id}`);
     }
 }

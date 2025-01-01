@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, ElementRef, inject, Inject, OnInit} from '@angular/core';
-import {IProduct} from '../../shared/products/product.interface';
+import { Component, OnInit} from '@angular/core';
+import { IProduct } from '../../shared/products/product.interface';
 import { ProductsStoreService } from '../../shared/products/products-store.service';
 import { Observable } from 'rxjs';
 

@@ -15,13 +15,9 @@ export class CardComponent implements OnInit {
     constructor(
         private readonly cdr: ChangeDetectorRef,
     ) {
-
     }
 
     ngOnInit(): void {
-        // setInterval(() => {
-        //     this.cdr.markForCheck();
-        // }, 1000)
     }
 
     onProductBuy(event: Event) {

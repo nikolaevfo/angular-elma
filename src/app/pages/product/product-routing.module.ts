@@ -4,7 +4,8 @@ import {ProductComponent} from './product.component';
 import {DescriptionComponent} from './description/description.component';
 import {TypeComponent} from './type/type.component';
 
-export const productRoutes: Routes = [
+// export const productRoutes: Routes = [
+const productRoutes: Routes = [
     {
         path: '',
         component: ProductComponent,
@@ -26,8 +27,8 @@ export const productRoutes: Routes = [
     },
 ];
 
-// @NgModule({
-//     imports: [RouterModule.forChild(productRoutes)],
-//     exports: [RouterModule],
-// })
-// export class ProductRoutingModule {}
+@NgModule({
+    imports: [RouterModule.forChild(productRoutes)],
+    exports: [RouterModule],
+})
+export class ProductRoutingModule {}

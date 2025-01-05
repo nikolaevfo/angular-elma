@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NoPreloading, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
-import { ProductComponent } from './pages/product/product.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DescriptionComponent } from './pages/product/description/description.component';
-import { TypeComponent } from './pages/product/type/type.component';
-import { productRoutes } from './pages/product/product-routing.module';
+import { CustomPreloadingStatagyService } from './shared/custom-preloading-strategy/custom-preloading-strategy.service';
 
 const routes: Routes = [
     {
@@ -19,15 +16,26 @@ const routes: Routes = [
     },
     {
         path: 'product/:id', // ['product', 'id']
-        children: productRoutes,
+        data: {
+            needPreload: true,
+        },
+        loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule),
     },
+    // {
+    //     path: 'product/:id', // ['product', 'id']
+    //     children: productRoutes,
+    // },
     {
         path: '**',
         component: NotFoundComponent,
     },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: CustomPreloadingStatagyService,
+    // preloadingStrategy: NoPreloading,
+    // preloadingStrategy: PreloadAllModules,
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

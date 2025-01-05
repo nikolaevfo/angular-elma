@@ -14,7 +14,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
 import { baseUrl } from './shared/base-url/base-url.const';
 import { BASE_URL } from './shared/base-url/base-url.token';
-import { ProductModule } from './pages/product/product.module';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { DescriptionModule } from './pages/product/description/description.module';
 import { TypeModule } from './pages/product/type/type.module';
@@ -33,7 +32,6 @@ import { TypeModule } from './pages/product/type/type.module';
         ProductsListModule,
         ShadowClickModule,
         HttpClientModule,
-        ProductModule,
         NotFoundModule,
         DescriptionModule,
         TypeModule,

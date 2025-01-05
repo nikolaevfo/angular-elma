@@ -5,6 +5,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DescriptionComponent } from './pages/product/description/description.component';
 import { TypeComponent } from './pages/product/type/type.component';
+import { productRoutes } from './pages/product/product-routing.module';
 
 const routes: Routes = [
     {
@@ -18,22 +19,7 @@ const routes: Routes = [
     },
     {
         path: 'product/:id', // ['product', 'id']
-        component: ProductComponent,
-        children: [
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'description',
-            },
-            {
-                path: 'description',
-                component: DescriptionComponent,
-            },
-            {
-                path: 'type',
-                component: TypeComponent,
-            },
-        ]
+        children: productRoutes,
     },
     {
         path: '**',

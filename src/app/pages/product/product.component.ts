@@ -14,18 +14,10 @@ export class ProductComponent {
         map(paramMap => paramMap.get('id')),
         filter(Boolean),
         tap(productId => {
-            // console.log('tap', productId);
             this.productsStoreService.loadProduct(productId);
         }),
         switchMap(() => this.productsStoreService.currentProduct$),
     );
-    // readonly product$ = of('96-planset-dexp-ursus-s290-32-gb-3g-cernyj').pipe(
-    //     tap(productId => {
-    //         // console.log('tap', productId);
-    //         this.productsStoreService.loadProduct(productId);
-    //     }),
-    //     switchMap(() => this.productsStoreService.currentProduct$),
-    // );
 
     constructor(
         private readonly productsStoreService: ProductsStoreService,
@@ -35,17 +27,8 @@ export class ProductComponent {
     }
 
     navigateToType () {
-        // this.router.navigate(['./type']);
-        // this.router.navigateByUrl('./type');
-
-        // const urlTree = this.router.createUrlTree(['./type'], {
-        //     relativeTo: this.activatedRoute,
-        // });
-        // this.router.navigateByUrl(urlTree);
-
         this.router.navigate(['./type'], {
             relativeTo: this.activatedRoute,
-            // queryParams: {text: 'Fedor'},
         });
 
         console.log(this.activatedRoute)

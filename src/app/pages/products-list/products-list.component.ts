@@ -29,8 +29,6 @@ export class ProductsListComponent implements OnInit {
     }
 
     nagigateToProduct () {
-        // this.router.navigate(['product', 'id']);
-        // this.router.navigate(['/product/id']);
         this.router.navigateByUrl('/product/id');
     }
 }

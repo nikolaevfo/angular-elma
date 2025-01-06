@@ -5,6 +5,7 @@ import { ProductsListComponent } from './products-list.component';
 import { CardModule } from './card/card.module';
 import { IfModule } from '../../shared/if/if.module';
 import { RouterModule } from '@angular/router';
+import { CounterInputModule } from '../../shared/counter-input/counter-input.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
         MatProgressSpinnerModule,
         IfModule,
         RouterModule,
+        CounterInputModule,
     ],
     exports: [ProductsListComponent],
 })

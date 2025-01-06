@@ -14,8 +14,6 @@ const productRoutes: Routes = [
     {
         path: '',
         component: ProductComponent,
-        // canActivate: [questionCanAcitvateGuard],
-        // canActivateChild: [questionCanActivateChildGuard],
         resolve: {
             product: productsResolver,
         },
@@ -32,8 +30,6 @@ const productRoutes: Routes = [
             {
                 path: 'type',
                 component: TypeComponent,
-                // canDeactivate: [questionCanDeactivateGuard],
-                canActivate: [redirectGuard],
             },
         ],
     },

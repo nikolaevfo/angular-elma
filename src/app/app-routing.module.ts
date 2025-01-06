@@ -21,21 +21,13 @@ const routes: Routes = [
         },
         loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule),
     },
-    // {
-    //     path: 'product/:id', // ['product', 'id']
-    //     children: productRoutes,
-    // },
     {
         path: '**',
         component: NotFoundComponent,
     },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: CustomPreloadingStatagyService,
-    // preloadingStrategy: NoPreloading,
-    // preloadingStrategy: PreloadAllModules,
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

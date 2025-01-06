@@ -13,21 +13,13 @@ export class ProductComponent {
     readonly product$ = this.activatedRoute.data.pipe(
         map(data => data['product']),
     );
-    // readonly product$ = this.activatedRoute.paramMap.pipe(
-    //     map(paramMap => paramMap.get('id')),
-    //     filter(Boolean),
-    //     tap(productId => {
-    //         this.productsStoreService.loadProduct(productId);
-    //     }),
-    //     switchMap(() => this.productsStoreService.currentProduct$),
-    // );
 
     constructor(
         private readonly productsStoreService: ProductsStoreService,
         private readonly router: Router,
         private readonly activatedRoute: ActivatedRoute,
     ) {
-        console.log('ProductComponent data', this.activatedRoute.data)
+        // console.log('ProductComponent data', this.activatedRoute.data)
     }
 
     navigateToType () {

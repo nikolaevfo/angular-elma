@@ -10,5 +10,5 @@ export const productsResolver: ResolveFn<IProduct> = (route, state) => {
 
     productsStoreService.loadProduct(productId!);
 
-    return productsStoreService.currentProduct$.pipe(filter(Boolean), delay(2000));
+    return productsStoreService.currentProduct$.pipe(filter(Boolean), delay(100));
 };

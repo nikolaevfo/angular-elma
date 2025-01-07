@@ -6,6 +6,7 @@ import { CardModule } from './card/card.module';
 import { IfModule } from '../../shared/if/if.module';
 import { RouterModule } from '@angular/router';
 import { CounterInputModule } from '../../shared/counter-input/counter-input.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,8 @@ import { CounterInputModule } from '../../shared/counter-input/counter-input.mod
         IfModule,
         RouterModule,
         CounterInputModule,
+        ReactiveFormsModule,
+        FormsModule,
     ],
     exports: [ProductsListComponent],
 })

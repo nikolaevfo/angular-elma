@@ -1,4 +1,13 @@
 
+<!-- <input type="text" name="userName" [formControl]="userNameControl">
+<input type="number" name="userAge" [(ngModel)]="userAgeValue"> -->
+
+<app-counter-input [formControl]="counter"></app-counter-input>
+{{counter.value}}
+
+<app-counter-input [(ngModel)]="counterDriven"></app-counter-input>
+{{counterDriven}}
+
 <div
     *ngIf="(products | async) as productsValue; else spinner; let value"
     class="cards"

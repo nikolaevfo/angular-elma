@@ -3,6 +3,10 @@
     width: 250px;
 }
 
+form {
+    margin-bottom: 50px;
+}
+
 .filter {
     position: sticky;
     top: 10px;

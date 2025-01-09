@@ -16,11 +16,7 @@ export class ProductsListComponent implements OnInit {
         return this.productsStoreService.products$;
     }
 
-    // protected readonly userNameControl = new FormControl('Fedor');
-    // protected userAgeValue = 38;
-
-    protected counter = new FormControl(10);
-    protected counterDriven = 10;
+    protected brands = ['Dexp', 'Rival', 'Harper', 'Lenovo'];
 
     constructor(
         private readonly productsStoreService: ProductsStoreService,
@@ -30,26 +26,6 @@ export class ProductsListComponent implements OnInit {
 
     ngOnInit(): void {
         this.productsStoreService.loadProducts();
-
-        // this.userNameControl.valueChanges.subscribe(() => {
-        //     console.log(this.userNameControl.value)
-        // })
-
-        // setInterval(() => {
-        //     this.userAgeValue = 39
-        // }, 3000)
-
-        setTimeout(() => {
-            this.counter.setValue(20);
-        }, 3000)
-        this.counter.valueChanges.subscribe(() => {
-            console.log(this.counter.value)
-        })
-
-        setTimeout(() => {
-            this.counterDriven = 30;
-            this.cdr.markForCheck();
-        }, 3000)
     }
 
     protected trackBy (_index: number, product: IProduct) {

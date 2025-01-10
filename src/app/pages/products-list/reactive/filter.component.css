@@ -29,3 +29,7 @@ form {
     margin: 20px auto;
     width: 60px;
 }
+
+/* mat-form-field.ng-touched {
+    border: 2px solid red;
+} */

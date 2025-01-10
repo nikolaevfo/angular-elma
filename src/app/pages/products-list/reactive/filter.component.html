@@ -2,7 +2,7 @@
 <form >
     <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput [formControl]="controlStringReactive"/>
+        <input matInput/>
     </mat-form-field>
 
     <div *ngIf="brands; else loaderTemplateRef" class="checkbox-container">
@@ -20,12 +20,6 @@
             <app-counter-input></app-counter-input>
         </div>
     </div>
-    <!-- {{controlStringReactive.touched}}
-    {{controlStringReactive.pristine}}
-    {{controlStringReactive.dirty}} -->
-    <!-- {{controlStringReactive.valid}}
-    {{controlStringReactive.errors | json}}
-    {{errors$ | async | json}} -->
 </form>
 
 
@@ -33,14 +27,7 @@
 <div >
     <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input
-            matInput
-            #ngModel="ngModel"
-            [(ngModel)]="stringTemplateForm"
-            appIsStringAsyncValidator
-            required
-            minlength="3"
-        />
+        <input matInput/>
     </mat-form-field>
 
     <div *ngIf="brands; else loaderTemplateRef" class="checkbox-container">
@@ -58,11 +45,6 @@
             <app-counter-input></app-counter-input>
         </div>
     </div>
-    <!-- {{ngModel.touched}}
-    {{ngModel.pristine}}
-    {{ngModel.dirty}} -->
-    {{ngModel.valid}}
-    {{ngModel.errors | json}}
 </div>
 
 <ng-template #loaderTemplateRef>

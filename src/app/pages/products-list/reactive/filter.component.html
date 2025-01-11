@@ -1,51 +1,70 @@
 <h2>Reactive forms</h2>
-<form >
+<form [formGroup]="filterForm">
     <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput/>
+        <input matInput  formControlName="name"/>
     </mat-form-field>
 
-    <div *ngIf="brands; else loaderTemplateRef" class="checkbox-container">
-        <mat-checkbox *ngFor="let brand of brands; let index = index" >
+    <div
+        *ngIf="brands; else loaderTemplateRef"
+        class="checkbox-container"
+        formArrayName="brands"
+    >
+        <mat-checkbox
+            *ngFor="let brand of brands; let index = index"
+            [formControlName]="index"
+        >
             {{ brand }}
         </mat-checkbox>
     </div>
-    <div class="price-range">
+    <div class="price-range" formGroupName="priceRange">
         <div>
             Min
-            <app-counter-input></app-counter-input>
+            <app-counter-input formControlName="min"></app-counter-input>
         </div>
         <div>
             Max
-            <app-counter-input></app-counter-input>
+            <app-counter-input formControlName="max"></app-counter-input>
         </div>
     </div>
 </form>
 
 
 <h2>Template driven forms</h2>
-<div >
+<form #ngForm="ngForm" (ngSubmit)="onSubmit(ngForm.value)">
     <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput/>
+        <input matInput ngModel name="name"/>
     </mat-form-field>
 
-    <div *ngIf="brands; else loaderTemplateRef" class="checkbox-container">
-        <mat-checkbox *ngFor="let brand of brands; let index = index" >
+    <div
+        ngModelGroup="brands"
+        *ngIf="brands; else loaderTemplateRef"
+        class="checkbox-container"
+    >
+        <mat-checkbox
+            *ngFor="let brand of brands; let index = index"
+            [ngModel]="false"
+            [name]="brand"
+        >
             {{ brand }}
         </mat-checkbox>
     </div>
-    <div class="price-range">
+    <div class="price-range" ngModelGroup="priceRange">
         <div>
             Min
-            <app-counter-input></app-counter-input>
+            <app-counter-input name="min" [ngModel]="0"></app-counter-input>
         </div>
         <div>
             Max
-            <app-counter-input></app-counter-input>
+            <app-counter-input name="max" [ngModel]="999999"></app-counter-input>
         </div>
     </div>
-</div>
+
+    <button type="submit">Submit</button>
+
+    {{ ngForm.value | json}}
+</form>
 
 <ng-template #loaderTemplateRef>
     <mat-spinner diameter="60" class="loader"></mat-spinner>

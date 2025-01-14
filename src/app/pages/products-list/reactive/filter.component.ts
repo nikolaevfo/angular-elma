@@ -1,13 +1,16 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
     Input,
     OnChanges,
+    OnInit,
     Output,
     SimpleChanges,
+    ViewChild,
 } from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormControl, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, FormArray, FormBuilder, FormControl, NgModel, ValidationErrors, Validators} from '@angular/forms';
 import { map, Observable, startWith, timer } from 'rxjs';
 
 function isStringValidator(control: AbstractControl): ValidationErrors | null {
@@ -22,10 +25,12 @@ function isStringValidator(control: AbstractControl): ValidationErrors | null {
     styleUrls: ['./filter.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilterComponent implements OnChanges {
+export class FilterComponent implements OnChanges, AfterViewInit {
     @Input() brands: string[] | null = null;
 
     @Output() changeFilter = new EventEmitter<any>();
+
+    @ViewChild('ngModel') private ngModel?: NgModel;
 
     protected controlStringReactive = new FormControl('', {
         validators: [Validators.required, Validators.minLength(3),],
@@ -47,6 +52,13 @@ export class FilterComponent implements OnChanges {
         .subscribe((value) => {
             console.log(value)
         })
+    }
+
+    ngAfterViewInit(): void {
+        console.log(this.ngModel)
+        if (this.ngModel) {
+            this.ngModel.valueChanges?.subscribe(console.log)
+        }
     }
 
     ngOnChanges({}: SimpleChanges) {

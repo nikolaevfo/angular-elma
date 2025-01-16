@@ -30,79 +30,11 @@ const baseUrl = 'http://base'
     ],
     providers: [
         provideAnimationsAsync(),
-
-        // ProductsStoreService,
-        // {
-        //     provide: ProductsStoreService,
-        //     useClass: ProductsStoreService,
-        // },
-
-        // {
-        //     provide: 'name',
-        //     useValue: 'Fedor',
-        // },
-
-        // {
-        //     provide: 'ProductsStoreService',
-        //     useExisting: ProductsStoreService,
-        // },
-
-        // {
-        //     provide: ProductsStoreService,
-        //     useFactory: () => new ProductsStoreService(),
-        // },
-        {
-            provide: 'name',
-            useFactory: () =>'Fedor',
-            multi: true,
-        },
-        {
-            provide: 'name',
-            useFactory: () => 'Tolya',
-            multi: true,
-        },
-        // {
-        //     provide: 'ProductsStoreService',
-        //     useFactory: (productsStoreService: ProductsStoreService) => productsStoreService,
-        //     deps: [ProductsStoreService],
-        // },
-        {
-            provide: 'ProductsStoreService',
-            useFactory: () => inject(ProductsStoreService),
-        },
-
         ProductsApiService,
-
-        {
-            provide: BASE_URL,
-            useValue: baseUrl,
-        },
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    // constructor() {
-    //     const parentInjector = Injector.create({
-    //         providers: [
-    //             {
-    //                 provide: 'name',
-    //                 useValue: 'Fedor',
-    //             },
-    //         ],
-    //     });
-    //     const injector = Injector.create({
-    //         providers: [
-    //             {
-    //                 provide: BASE_URL,
-    //                 useValue: 'http://base',
-    //             },
-    //         ],
-    //         parent: parentInjector,
-    //     });
-
-    //     console.log(injector.get(BASE_URL), 'BASE_URL');
-    //     console.log(injector.get('name'), 'name');
-    // }
 }
 
 /**

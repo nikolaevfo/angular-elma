@@ -6,18 +6,8 @@ import { MatDrawer } from '@angular/material/sidenav';
     selector: 'app-sidenav',
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss',
-    providers: [
-        {
-            provide: 'nameFedor',
-            useValue: 'Fedor is my name',
-        },
-        // {
-        //     provide: 'provideData',
-        //     useValue: 'sidenav component provide data',
-        // }
-    ]
 })
-export class SidenavComponent implements OnInit{
+export class SidenavComponent {
 
     @Input() isDrawerOpen = false;
     @Input() title?: string;
@@ -27,14 +17,6 @@ export class SidenavComponent implements OnInit{
 
     @ContentChild('matListClass', {static: true, descendants: false})
     private readonly matList?: MatList; // потомки найдутся
-
-    constructor(
-        @Inject('provideData') @SkipSelf() @Optional() private readonly provideData?: string,
-    ){}
-
-    ngOnInit(): void {
-        console.log(this.provideData)
-    }
 
     toggleSidenavOpen () {
         this.matdrawer?.toggle();

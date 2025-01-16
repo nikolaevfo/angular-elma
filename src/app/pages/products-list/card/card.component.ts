@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IProduct} from '../../../shared/products/product.interface';
 
 @Component({
@@ -6,10 +6,25 @@ import {IProduct} from '../../../shared/products/product.interface';
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.css'],
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
     @Input() product: IProduct | null = null;
 
     @Output() readonly buy = new EventEmitter<IProduct['_id']>();
+
+    constructor(
+        private readonly cdr: ChangeDetectorRef,
+    ){}
+
+    protected get currency () {
+        console.log('get currency')
+        return `${this.product?.price} $`
+    }
+
+    ngOnInit(): void {
+        setInterval(() => {
+            this.cdr.markForCheck();
+        })
+    }
 
     onProductBuy(event: Event) {
         event.stopPropagation();

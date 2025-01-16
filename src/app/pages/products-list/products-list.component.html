@@ -1,5 +1,5 @@
 <div
-    *ngIf="(products | async) as productsValue; else spinner; let value"
+    *ngIf="(products | myAsync) as productsValue; else spinner; let value"
     class="cards"
 >
     <app-card

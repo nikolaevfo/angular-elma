@@ -5,7 +5,7 @@ import { ProductsApiService } from './products-api.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ProductsStoreService {
     private readonly productsStore$ = new BehaviorSubject<IProduct[] | null>(null);

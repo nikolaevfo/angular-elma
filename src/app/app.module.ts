@@ -12,8 +12,8 @@ import { ShadowClickModule } from './shared/shadow-click/shadow-click.module';
 import { ProductsStoreService } from './shared/products/products-store.service';
 import { ProductsApiService } from './shared/products/products-api.service';
 import { BASE_URL } from './shared/base-url/base-url.token';
-
-const baseUrl = 'http://base'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BaseUrlInterceptor } from './shared/base-url/base-url.interceptor';
 
 @NgModule({
     declarations: [
@@ -27,10 +27,26 @@ const baseUrl = 'http://base'
         MatListModule,
         ProductsListModule,
         ShadowClickModule,
+        HttpClientModule,
     ],
     providers: [
         provideAnimationsAsync(),
         ProductsApiService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: BaseUrlInterceptor,
+            multi: true,
+        },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     multi: true,
+        //     useClass: AuthInterceptor,
+        // },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     multi: true,
+        //     useClass: CatchErrorInterceptor,
+        // },
     ],
     bootstrap: [AppComponent]
 })

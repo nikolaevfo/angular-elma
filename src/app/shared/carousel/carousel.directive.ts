@@ -1,9 +1,13 @@
 import { Directive, Input, OnChanges, OnInit, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { ICarouselContext } from './carousel-context';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, takeUntil } from 'rxjs';
+import { DestroyService } from '../destroy-service/destroy.service';
 
 @Directive({
-    selector: '[appCarousel]'
+    selector: '[appCarousel]',
+    providers: [
+        DestroyService,
+    ]
 })
 export class CarouselDirective<T> implements OnChanges, OnInit {
     @Input() appCarouselOf: T[] | null | undefined;
@@ -23,11 +27,15 @@ export class CarouselDirective<T> implements OnChanges, OnInit {
     constructor(
         private readonly viewContainerRef: ViewContainerRef,
         private readonly templateRef: TemplateRef<ICarouselContext<T>>,
+        private readonly destroy$: DestroyService,
     ) { }
 
     private listenCurrentIndex() {
         this.currentIndex$
-            .pipe(map(currentIndex => this.getCurrentContext(currentIndex)))
+            .pipe(
+                map(currentIndex => this.getCurrentContext(currentIndex)),
+                takeUntil(this.destroy$)
+            )
             .subscribe(context => {
                 this.viewContainerRef.clear();
                 this.viewContainerRef.createEmbeddedView(this.templateRef, context);

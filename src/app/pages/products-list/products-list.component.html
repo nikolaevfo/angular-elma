@@ -1,5 +1,12 @@
+<ng-container *ngIf="showCard && (products | async) as productsValue">
+    <app-card
+        class="card"
+        [product]="productsValue[0]"
+    ></app-card>
+</ng-container>
+
 <div
-    *ngIf="products as productsValue; else spinner; let value"
+    *ngIf="(products | async) as productsValue; else spinner; let value"
     class="cards"
 >
     <app-card
@@ -8,6 +15,8 @@
         [product]="product"
         ></app-card>
 </div>
+
+
 
 <ng-template #spinner>
     <mat-spinner></mat-spinner>

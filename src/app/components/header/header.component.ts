@@ -11,7 +11,7 @@ export class HeaderComponent {
 
     @Input() appConfig?: ApplicationConfig;
 
-    @Output() menuClick  = new EventEmitter<MouseEvent>;
+    @Output() readonly menuClick = new EventEmitter<MouseEvent>;
 
     protected onMenuClick (event: MouseEvent) {
         // console.log(event);

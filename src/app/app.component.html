@@ -2,10 +2,12 @@
     [appConfig]="applicationConfig"
     (menuClick)="sidenav.toggleSidenavOpen()"
 ></app-header>
-<!-- <app-header
-    [appConfig]="applicationConfig"
-    (menuClick)="onMenuClick($event)"
-></app-header> -->
+<!-- <div class="second-header">
+    <app-header
+        [appConfig]="applicationConfig"
+        (menuClick)="sidenav.toggleSidenavOpen()"
+    ></app-header>
+</div> -->
 
 <!-- <p>Red text</p> -->
 
@@ -14,15 +16,6 @@
 
 <app-sidenav
     #sidenav
-    [title]="applicationConfig.title"
+    [title]="title"
     [(isDrawerOpen)]="isSidenavOpen"
 ></app-sidenav>
-
-
-
-<!-- <app-sidenav
-    [isDrawerOpen]="isSidenavOpen"
-    (isDrawerOpenChange)="isSidenavOpen = $event"
-></app-sidenav> -->
-
-<!-- HeaderComponent.menuClick.subscrive($event => onMenuClick($event)) -->

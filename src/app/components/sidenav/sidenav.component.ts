@@ -12,7 +12,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 })
 export class SidenavComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     @Input() isDrawerOpen = false;
-    @Input() title?: string;
+    @Input() counter?: number;
     @Output() isDrawerOpenChange = new EventEmitter<boolean>();
 
     @ViewChild('drawer') private readonly matdrawer?: MatDrawer;
@@ -26,15 +26,27 @@ export class SidenavComponent implements OnChanges, OnInit, DoCheck, AfterConten
         this.cdr.markForCheck();
     }
 
-    ngOnChanges({title}: SimpleChanges): void {
-        console.log('ngOnChanges', title.currentValue)
-        if (this.title && title) {
-            console.log(this.title)
+    ngOnChanges({title, counter}: SimpleChanges): void {
+        console.log('ngOnChanges', counter?.currentValue)
+        if (this.counter && counter) {
+            console.log(this.counter)
         }
     }
 
     ngOnInit(): void {
         console.log('ngOnInit')
+
+        setTimeout(() => {
+            this.cdr.detach()
+        }, 2000)
+
+        setTimeout(() => {
+            this.cdr.detectChanges()
+        }, 6000)
+
+        setTimeout(() => {
+            this.cdr.reattach()
+        }, 10000)
     }
 
     ngDoCheck(): void {

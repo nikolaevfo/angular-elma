@@ -11,6 +11,7 @@ import { applicationConfigMock } from './shared/app-config/app-config.mock';
 export class AppComponent implements OnInit {
     title = 'angular-elma';
     protected isSidenavOpen = false;
+    counter = 0;
 
     applicationConfig = applicationConfigMock
 
@@ -21,8 +22,16 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         setTimeout(() => {
             this.title = 'new title';
-            this.cdr.markForCheck();
+            // this.cdr.markForCheck();
         }, 3000)
+
+        const interval = setInterval(() => {
+            this.counter++;
+            // this.cdr.markForCheck();
+            if (this.counter > 100) {
+                clearInterval(interval)
+            }
+        }, 500)
     }
 
     protected onMenuClick (event: MouseEvent) {

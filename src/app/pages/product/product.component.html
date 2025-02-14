@@ -21,10 +21,19 @@
             <!-- <a mat-tab-link routerLink="./type">type</a> -->
             <!-- <a mat-tab-link>description</a>
             <a mat-tab-link>type</a> -->
+            <a mat-tab-link [routerLink]="[{outlets: {f: 'feedback'}}]">show feedback</a>
+            <a mat-tab-link [routerLink]="[{outlets: {f: null}}]">hide feedback</a>
         </nav>
         <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
 
         <router-outlet></router-outlet>
+    </div>
+
+    <div>
+        <p>Feedback</p>
+        <router-outlet
+            name="f"
+        ></router-outlet>
     </div>
 </ng-container>
 

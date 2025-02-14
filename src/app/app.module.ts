@@ -18,6 +18,7 @@ import { ProductModule } from './pages/product/product.module';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { DescriptionModule } from './pages/product/description/description.module';
 import { TypeModule } from './pages/product/type/type.module';
+import { FeedbackModule } from './pages/product/feedback/feedback.module';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { TypeModule } from './pages/product/type/type.module';
         NotFoundModule,
         DescriptionModule,
         TypeModule,
+        FeedbackModule,
     ],
     providers: [
         provideAnimationsAsync(),

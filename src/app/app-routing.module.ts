@@ -5,6 +5,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DescriptionComponent } from './pages/product/description/description.component';
 import { TypeComponent } from './pages/product/type/type.component';
+import { FeedbackComponent } from './pages/product/feedback/feedback.component';
 
 const routes: Routes = [
     {
@@ -20,11 +21,11 @@ const routes: Routes = [
         path: 'product/:id', // ['product', 'id']
         component: ProductComponent,
         children: [
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'description',
-            },
+            // {
+            //     path: '',
+            //     pathMatch: 'full',
+            //     redirectTo: 'description',
+            // },
             {
                 path: 'description',
                 component: DescriptionComponent,
@@ -32,6 +33,11 @@ const routes: Routes = [
             {
                 path: 'type',
                 component: TypeComponent,
+            },
+            {
+                outlet: 'f',
+                path: 'feedback',
+                component: FeedbackComponent,
             },
         ]
     },

@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import { IProduct } from '../../shared/products/product.interface';
 import { ProductsStoreService } from '../../shared/products/products-store.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgModel } from '@angular/forms';
 
 @Component({
     selector: 'app-products-list',
@@ -21,6 +21,8 @@ export class ProductsListComponent implements OnInit {
 
     protected counter = new FormControl(10);
     protected counterDriven = 10;
+
+    @ViewChild('ngModel', {static: true}) private readonly ngModel?: NgModel;
 
     constructor(
         private readonly productsStoreService: ProductsStoreService,
@@ -50,6 +52,10 @@ export class ProductsListComponent implements OnInit {
             this.counterDriven = 30;
             this.cdr.markForCheck();
         }, 3000)
+
+        this.ngModel?.valueChanges?.subscribe((value) => {
+            console.log(value)
+        })
     }
 
     protected trackBy (_index: number, product: IProduct) {

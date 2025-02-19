@@ -5,7 +5,7 @@
 <app-counter-input [formControl]="counter"></app-counter-input>
 {{counter.value}}
 
-<app-counter-input [(ngModel)]="counterDriven"></app-counter-input>
+<app-counter-input #ngModel="ngModel" [(ngModel)]="counterDriven"></app-counter-input>
 {{counterDriven}}
 
 <div

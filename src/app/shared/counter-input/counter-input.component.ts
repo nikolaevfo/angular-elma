@@ -14,7 +14,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
         },
     ],
 })
-export class CounterInputComponent {
+export class CounterInputComponent implements ControlValueAccessor {
     @Input() step = 1;
 
     counter = 0;

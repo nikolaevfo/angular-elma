@@ -7,7 +7,7 @@ import { IfModule } from '../../shared/if/if.module';
 import { RouterModule } from '@angular/router';
 import { CounterInputModule } from '../../shared/counter-input/counter-input.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterModule } from './reactive/filter.module';
+import { FilterModule } from './filter/filter.module';
 
 
 @NgModule({
